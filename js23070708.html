@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>//빙고 테이블 //width:넓이 height : 세로
+    var t = "<table border=5 width=400 height=400>";//table border-테투리가 두꺼워짐
+    var i,j,num=1;
+    for(i=0;i<5;i++){
+        t+="<tr bgcolor=skyblue align=right>";//색상
+            for(j=0;j<5;j++){
+                t+="<td>"+ num++ +"</td>";
+            }
+            t+="</tr>";
+            }
+            t+="</table>";
+            document.write(t);
+    
+</script>
+</body>
+</html>
