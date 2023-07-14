@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .pan{
+        border-style: solid;
+        display: table-cell;
+        
+        background-color: peru;
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+<body>
+    <button id = start>
+        ♥START♥
+    </button>
+    <div id = "pan"></div>
+    <script>
+        
+        document.getElementById("start").addEventListener('click',bingo_start);
+        function bingo_start(){
+            ar=[]; // 숫자목록
+        for(var n = 0 ;n<25;n++){
+            ar[n]= n + 1;
+        }
+            //bimg 배열에 랜덤으로 bing[0~24] 집어넣기
+        const bingo_number=[];
+        for(var n=0;n<25;n++){
+            index = Math.floor(Math.random()*ar.length);
+            bingo_number.push(ar[index]);
+            ar.splice(index,1);
+            console.log(bingo_number[n]);
+        }
+       
+    var bingo_pan='';
+       for(var n=0; n < 25; n++)
+     {
+      if(n%5==0){
+            bingo_pan += "<br>";
+        }
+       
+        bingo_pan+= "<div class = pan id="+n+" onclick = 'Bingo(this)'>"+bingo_number[n]+"</div>" 
+        console.log(bingo_pan)
+     }
+     document.getElementById('pan').innerHTML = bingo_pan;
+        }
+
+        //빙고숫자 지우기
+        function Bingo(bingo_click){
+            var click_on=document.getElementById(bingo_click.id);
+            click_on.style.backgroundcolor="red"
+            click_on.innerHTML = "  ";    
+        }
+
+
+   
+    </script>
+</body>
+</html>
